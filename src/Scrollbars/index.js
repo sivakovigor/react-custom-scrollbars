@@ -560,9 +560,7 @@ export default class Scrollbars extends Component {
             ...(autoHide && trackAutoHeightStyle),
             ...((!scrollbarWidth || (universal && !didMountUniversal)) && {
                 display: 'none',
-            }),
-            left: isRTL ? 2 : 'auto',
-            right: isRTL ? 'auto' : 2
+            })
         };
 
         const trackVerticalStyle = {
@@ -570,7 +568,9 @@ export default class Scrollbars extends Component {
             ...(autoHide && trackAutoHeightStyle),
             ...((!scrollbarWidth || (universal && !didMountUniversal)) && {
                 display: 'none'
-            })
+            }),
+            left: isRTL ? 2 : 'auto',
+            right: isRTL ? 'auto' : 2
         };
 
         return createElement(tagName, { ...props, style: containerStyle, ref: (ref) => { this.container = ref; } }, [
