@@ -450,9 +450,8 @@ export default class Scrollbars extends Component {
             const { scrollLeft, clientWidth, scrollWidth } = values;
             const trackHorizontalWidth = getInnerWidth(this.trackHorizontal);
             const thumbHorizontalWidth = this.getThumbHorizontalWidth();
-            const thumbHorizontalX = isRTL ?
-                thumbHorizontalWidth - trackHorizontalWidth + scrollLeft / (scrollWidth - clientWidth) * (trackHorizontalWidth - thumbHorizontalWidth) :
-                scrollLeft / (scrollWidth - clientWidth) * (trackHorizontalWidth - thumbHorizontalWidth);
+            const thumbLTRHorizontalX = (trackHorizontalWidth - thumbHorizontalWidth) * scrollLeft / (scrollWidth - clientWidth);
+            const thumbHorizontalX = isRTL ? thumbHorizontalWidth - trackHorizontalWidth + thumbLTRHorizontalX : thumbLTRHorizontalX;
             const thumbHorizontalStyle = {
                 width: thumbHorizontalWidth,
                 transform: `translateX(${thumbHorizontalX}px)`
