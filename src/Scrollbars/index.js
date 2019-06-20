@@ -466,10 +466,10 @@ export default class Scrollbars extends Component {
             };
             if (hideTracksWhenNotNeeded) {
                 const trackHorizontalStyle = {
-                    visibility: scrollWidth > clientWidth ? 'visible' : 'hidden'
+                    visibility: scrollWidth > clientWidth + 1 ? 'visible' : 'hidden'
                 };
                 const trackVerticalStyle = {
-                    visibility: scrollHeight > clientHeight ? 'visible' : 'hidden'
+                    visibility: scrollHeight > clientHeight + 1 ? 'visible' : 'hidden'
                 };
                 css(this.trackHorizontal, trackHorizontalStyle);
                 css(this.trackVertical, trackVerticalStyle);
